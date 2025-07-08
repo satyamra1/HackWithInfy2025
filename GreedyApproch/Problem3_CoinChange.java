@@ -8,14 +8,14 @@ import java.util.Arrays;
 // The answer is guaranteed to fit into a signed 32-bit integer.
 public class Problem3_CoinChange {
      public static void main(String[] args){
-        int g[]={1,2,2};
-        int s[] ={1,2,2};
-        int ans = change(g,s);
+        int amount=10;
+        int coins[] ={1,2,2};
+        int ans = change(amount,coins);
         System.out.println(ans);
     
     
 }
-public int change(int amount, int[] coins) {
+public static int change(int amount, int[] coins) {
      int dp[][]=new int[amount+1][coins.length+1];
         for(int []a:dp){
             Arrays.fill(a,-1);
@@ -34,7 +34,6 @@ public int change(int amount, int[] coins) {
             return dp[amt][i];
         }
         int inc=0,exc=0;
-        int ans=0;
         if (arr[i]<=amt){
             inc=TotalPermutaion(arr,amt-arr[i],i,dp);
         }
